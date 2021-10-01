@@ -1,4 +1,3 @@
-
 terraform {
   required_providers {
     azurerm = {
@@ -10,7 +9,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  # skip_provider_registration = true
 }
 
 resource "azurerm_resource_group" "repro" {
@@ -39,10 +37,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "workers" {
 
   sku                             = "Standard_A1_v2"
   instances                       = 1
-  
+
   # First run was not specifying this value
   # Second run sets it to false
-  overprovision                   = "false"
+  # overprovision                   = "false"
 
   source_image_reference {
     publisher = "Canonical"
